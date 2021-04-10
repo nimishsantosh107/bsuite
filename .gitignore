@@ -7,3 +7,11 @@ pyvenv.cfg
 
 # IDE files.
 .vscode
+
+**/__pycache__
+**/.ipynb_checkpoints
+**/*.egg-info
+
+
+### colab link 
+# https://colab.research.google.com/drive/1rU20zJ281sZuMD1DHbsODFr1DbASL0RH
