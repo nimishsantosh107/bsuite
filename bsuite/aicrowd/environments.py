@@ -1,0 +1,6 @@
+CATCH = 'catch/0'
+CATCH_NOISE = 'catch_noise/1'
+CARTPOLE = 'cartpole/0'
+CARTPOLE_NOISE = 'cartpole_noise/1'
+MOUNTAINCAR = 'mountain_car/0'
+MOUNTAINCAR_NOISE = 'mountain_car_noise/1'
