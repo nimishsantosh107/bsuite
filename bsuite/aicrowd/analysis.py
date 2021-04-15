@@ -1,6 +1,4 @@
-import numpy as np
-import pandas as pd
-import plotnine as gg
+from tabulate import tabulate
 
 from bsuite.logging import csv_load
 from bsuite.experiments import summary_analysis
@@ -43,4 +41,10 @@ class Analyzer:
             'mountain_car': SCORE_MOUNTAINCAR,
             'mountain_car_noise': SCORE_MOUNTAINCAR_NOISE
         }
-        
+    
+    def print_scores(self):
+        scores = self.get_scores()
+
+        headers = ["ENVIRONMENT", "SCORE"]
+        table = tabulate([(env, score) for env, score in scores.items()], headers=headers, tablefmt="fancy_grid")
+        print(table)
