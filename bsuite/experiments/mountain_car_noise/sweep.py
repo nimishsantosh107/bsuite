@@ -23,7 +23,7 @@ NUM_EPISODES = mountain_car_sweep.NUM_EPISODES
 _settings = []
 for scale in [0.1, 0.3, 1.0, 3., 10.]:
   for seed_id in range(4):
-    _settings.append({'noise_scale': scale, 'seed': seed_id})
+    _settings.append({'noise_scale': 0.2, 'seed': seed_id})
 
 SETTINGS = tuple(_settings)
 TAGS = ('noise', 'generalization')

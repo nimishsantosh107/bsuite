@@ -6,20 +6,26 @@ from tqdm.notebook import tqdm
 from bsuite.utils import gym_wrapper
 
 class Runner:
-    def __init__(self, env_id, agent, verbose=True, log_interval=100):
+    def __init__(self, env_id, agent, verbose=True, log_interval=100, eval=False):
         '''
         PARAMETERS:
         'env_id'       - Environment ID eg: environments.CARTPOLE
         'agent'        - Instance of an Agent class with the necessary methods implemented
         'verbose'      - True: prints logs, False: doesn't print logs
-        'log_interval` - Interval between episodes to print logs at
+        'log_interval' - Interval between episodes to print logs at
+        'eval'         - Use custom private results path as results dir
         '''
         self.agent = agent
         self.env_id = env_id
         self.verbose = verbose
         self.log_interval = log_interval
 
-        env = bsuite.load_and_record_to_csv(env_id, results_dir='RESULTS', overwrite=True) ####### PATH ENV
+        if(eval):
+            results_dir = os.environ.get('PRIVATE_RESULTS_DIR')
+        else:
+            results_dir = os.environ.get('RESULTS_DIR')
+
+        env = bsuite.load_and_record_to_csv(env_id, results_dir=results_dir, overwrite=True)
         self.env = gym_wrapper.GymFromDMEnv(env)
     
     def play_episodes(self):
