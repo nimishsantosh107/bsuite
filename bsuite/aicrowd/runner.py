@@ -47,7 +47,7 @@ class Runner:
                 next_observation, reward, done, _ = self.env.step(action)
                 next_state = self.agent.get_state(next_observation)
 
-                self.agent.learn(state, action, reward, next_state)
+                self.agent.learn(state, action, reward, next_state, done)
 
                 state = next_state
 
